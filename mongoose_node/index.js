@@ -36,26 +36,26 @@ const  data1 = {
 const main = async () => {
     try {
         
-        //1. const data = await Product.find({price: {$eq: 59}})
-        //   console.log(data);
+        //* 1. const data = await Product.find({price: {$eq: 59}})
+          console.log(data);
 
-        //2. inserting documents
-        //await Product.insertMany(data1);
-        //const data = await Product.find({price: {$eq: 2466}})
-        //console.log(data);
+        //* 2. inserting documents
+        await Product.insertMany(data1);
+        const data = await Product.find({price: {$eq: 2466}})
+        console.log(data);
 
-        //3. updating documents  ->  we can use updateOne() and updateMany() methods directly or findOneAndUpdate().
-        //     await Product.findOneAndUpdate(
-        //     { name: "Designer Handbag2X", price: 2466 },         // find this document
-        //     { $set: {price: 2499} }                             // update this field value to new value
+        //* 3. updating documents  ->  we can use updateOne() and updateMany() methods directly or findOneAndUpdate().
+            await Product.findOneAndUpdate(
+            { name: "Designer Handbag2X", price: 2466 },         // find this document
+            { $set: {price: 2499} }                             // update this field value to new value
             
-        // );
+        );
 
-        // const data = await Product.find({price: {$eq: 2499}})
-        // console.log(data);
+        const data = await Product.find({price: {$eq: 2499}})
+        console.log(data);
 
 
-        //4. deleting documents ->  for delete we use findOneAndDelete()
+        //* 4. deleting documents ->  for delete we use findOneAndDelete()
         await Product.findOneAndDelete({ name: "Designer Handbag2X", price: 2499 });    // find this document and delete it.
                  
         const data = await Product.find({name: "Designer Handbag2X", price: 2499})
